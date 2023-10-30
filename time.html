@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 200px;
+           background-color: black;
+        }
+        #main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        font-weight: 800;
+        width: 275px;
+        height: 100px;
+        border: 20px solid;
+        border-radius: 30px;
+        background-color: rgb(147, 255, 97);
+        border-block-end-style: solid;
+        border-block-end-color: rgb(23, 45, 7);
+        }
+        
+    </style>
+</head>
+<body>
+<div id="main">
+    <span id="hours">00</span>
+    <span>:</span>
+    <span id="mts">00</span>
+    <span>:</span>
+    <span id="sec">00</span>
+    <span id="ampm"></span>
+</div>
+ <script>
+    function time(){
+        let clock =  new Date()
+        let hr = clock.getHours()
+        let minutes = clock.getMinutes()
+        let second = clock.getSeconds()
+        // let ampm = clock.toLocaleTimeString()
+        let hours = document.querySelector('#hours')
+        let ampm = document.querySelector('#ampm')
+        if(hr>12){
+            hr -=12
+            ampm.innerHTML = 'PM'
+        }
+        else{
+            ampm.innerHTML = 'AM'
+
+        }
+        if(hr<10){
+            hours.innerHTML = '0'+hr
+        }
+        else{
+            hours.innerHTML = hr
+        }
+        let mts = document.querySelector('#mts')
+        if(minutes<10){
+            mts.innerHTML = '0'+minutes
+        }
+        else{
+            mts.innerHTML = minutes
+        }
+        let sec = document.querySelector('#sec')
+        if(second<10){
+            sec.innerHTML = '0'+second
+        }
+        else{
+            sec.innerHTML = second
+        }
+        // let am = document.querySelector('#ampm')
+        // am.innerHTML = ampm
+    }
+    setInterval(time,1000)
+
+ </script>   
+</body>
+</html>
